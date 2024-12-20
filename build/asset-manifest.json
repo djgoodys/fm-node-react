@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/fmnodereact/static/css/main.3ff15d3c.css",
+    "main.js": "/fmnodereact/static/js/main.776e52a0.js",
+    "static/media/search3.png": "/fmnodereact/static/media/search3.8e4e33271a47b7d1c0e0.png",
+    "static/media/passwordhelp.jpg": "/fmnodereact/static/media/passwordhelp.85ce8974e1835bcc4b48.jpg",
+    "static/media/cancel.png": "/fmnodereact/static/media/cancel.2b531581f39a5391e3ca.png",
+    "index.html": "/fmnodereact/index.html",
+    "main.3ff15d3c.css.map": "/fmnodereact/static/css/main.3ff15d3c.css.map",
+    "main.776e52a0.js.map": "/fmnodereact/static/js/main.776e52a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ff15d3c.css",
+    "static/js/main.776e52a0.js"
+  ]
+}

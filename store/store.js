@@ -6,10 +6,12 @@ import filterTypesSlice from '../reducers/filterTypesReducer';
 import tasksReducer from '../reducers/tasksReducer.js';
 import usersReducer from '../reducers/usersReducer.js'
 import filtersSlice from '../reducers/filtersReducer'
+import componentSlice from '../reducers/componentReducer'
 import dataTableSlice from '../reducers/refDataTableReducer'
 import { thunk } from 'redux-thunk';
 // Combine your reducers into a single root reducer
 const rootReducer = combineReducers({
+  component:componentSlice,
   userData: loginSlice,
   equipment: equipmentSlice,
   filter_types: filterTypesSlice,

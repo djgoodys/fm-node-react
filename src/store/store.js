@@ -8,9 +8,10 @@ import filtersSlice from '../reducers/filtersReducer'
 import storageSlice from '../reducers/storageReducer'
 import tasksSlice from '../reducers/tasksSlice';
 import { thunk } from 'redux-thunk'; 
+import componentSlice from '../reducers/componentReducer'
 
-// Combine your reducers into a single root reducer
 const rootReducer = combineReducers({
+  component:componentSlice,
   userData: loginSlice,
   equipment: equipmentSlice,
   filtertypes: filtertypesSlice,

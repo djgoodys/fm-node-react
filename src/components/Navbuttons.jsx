@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Toolbar from './Toolbar'
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Logout } from '../thunks/logoutThunk.js';
-
+import { updateComponentName } from '../reducers/componentReducer';
 
 const Navbuttons = () => {
   const location = useLocation()
@@ -36,17 +36,17 @@ const Navbuttons = () => {
             <tr id="trButtons">
               <td id="tdMenu"></td>
               <td>
-                  <button className="myButton" id="btnUnits" name="btnUnits" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="View unit list" onClick={()=>navigate("/fmnodereact/equipment")}>Units</button>
+                  <button className="myButton" id="btnUnits" name="btnUnits" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="View unit list" onClick={()=>{dispatch(updateComponentName('equipment'));navigate("/fmnodereact/equipment")}}>Units</button>
               </td>
 
               <td>{localStorage.getItem("admin") == "true" ?(
                 <button className="myButton" id="btnAdmin" data-placement="top" title="For admins only" onClick={()=>navigate("/fmnodereact/admin")}>Admin</button>):null}
                 </td>
               <td>
-                <button id="btnGoToTasks" name="btnGoTasks" className="myButton" data-toggle="tooltip" data-placement="top" title="View tasks" onClick={()=>navigate("/fmnodereact/tasks")}>Tasks</button>
+                <button id="btnGoToTasks" name="btnGoTasks" className="myButton" data-toggle="tooltip" data-placement="top" title="View tasks" onClick={()=>{dispatch(updateComponentName('tasks'));navigate("/fmnodereact/tasks")}}>Tasks</button>
               </td>
               <td>
-                <button className="myButton" id="btnFilters" name="btnfilters" data-toggle="tooltip" data-placement="top" title="Filter Inventory Control" onClick={()=>navigate("/fmnodereact/filters")}>Filters</button>
+                <button className="myButton" id="btnFilters" name="btnfilters" data-toggle="tooltip" data-placement="top" title="Filter Inventory Control" onClick={()=>{dispatch(updateComponentName('filters'));navigate("/fmnodereact/filters")}}>Filters</button>
               </td>
               <td>
                 <button className="myButton" data-toggle="tooltip" data-placement="top" title="Log out of Filter Manager" id="btnLogOut" onClick={()=>LogOut()}>Log Out</button>

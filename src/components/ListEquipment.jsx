@@ -14,6 +14,7 @@ import { manageEquipment } from '../thunks/equipmentThunk'
 import { manageUsers } from '../thunks/usersThunk'
 import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
+import { updateComponentName } from '../reducers/componentReducer';
 
 const ListEquipment = (props) => {
     const [showConfirm, setShowConfirm] = useState(false)
@@ -49,7 +50,7 @@ const ListEquipment = (props) => {
     const [users, setUsers] = useState([])
     let equipment=[]
 
-
+    dispatch(updateComponentName('equipment'))
     const fetchEquipment = async (params) => {
         
         const obj2 = { action: "get-all-equipment" };
@@ -290,13 +291,7 @@ const ListEquipment = (props) => {
     }
     }
 
-    // const [checkedItems, setCheckedItems] = useState(
-    //     equipment.reduce((acc, unit) => {
-    //         acc[unit._id] = false;
-    //         return acc;
-    //     }, {})
-    // );
-
+  
     const handleCheckboxChange = async (event, unit_id, unit_name) => {
         const isChecked = event.target.checked;
         const unitname = getUnitName(unit_id)
@@ -416,7 +411,7 @@ const ListEquipment = (props) => {
             {equipment && Object.keys(equipment).length == 0 ? (<Spinner style={{ width: "100px", height: "100px", display: Object.keys(equipment).length > 0 ? "none" : "block" }} animation="border" variant="primary" role="status">
                 <span ></span>
             </Spinner>):null}
-            <div id="divTasks" ref={refDivTasks} style={{ display: showTasks && tasks.length > 0 ? "grid" : "none", gridTemplateColumns: "1fr .5fr" }}>
+            <div id="divTasks" ref={refDivTasks} style={{ display: showTasks && tasks.length > 0 ? "grid" : "none", gridTemplateColumns: "1fr .5fr", width:'91%' }}>
 
                 <div style={{ display: "flex" }}>
                     {tasks.map((task) => (
@@ -427,8 +422,8 @@ const ListEquipment = (props) => {
                     }
                 </div>
                 <div style={{ display: "flex", marginLeft: "400px" }}>
-                    <Button className="btn btn-primary" style={{ height: "fit-content", paddingBottom: "10px" }} onClick={() => submitTasks()}>Submit tasks</Button>
-                    <Button className="btn btn-warning" style={{ height: "80px", width: "140px", marginLeft: "20px", color: "white" }} onClick={() => setShowTasks(false)}>Cancel</Button>
+                    <Button className="btn btn-primary" style={{ height: "80px", width:'80px', paddingBottom: "10px" }} onClick={() => submitTasks()}>Submit tasks</Button>
+                    <Button className="btn btn-warning" style={{ height: "80px", width: "80px", marginLeft: "20px", color: "white" }} onClick={() => setShowTasks(false)}>Cancel</Button>
                 </div>
             </div>
             <table id="tblListEquipment">

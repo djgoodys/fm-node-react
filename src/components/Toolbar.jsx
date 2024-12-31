@@ -5,7 +5,8 @@ import '../css/fm.css'
 import Bydate from './Bydate.jsx';
 import { useSelector, useDispatch } from 'react-redux'
 import Sticky from 'react-stickynode';
-
+import Imgprint from '../images/print3.png';
+import { useNavigate } from 'react-router-dom';
 
 const Toolbar = () => {
   const [divOverdueClassName, setDivOverdueClassName] = useState('divOverdue');
@@ -16,6 +17,7 @@ const Toolbar = () => {
   const [isOverdue, setIsOverdue] = useState('unchecked')
   const userName = localStorage.getItem('username');
   const [overDue, setOverDue] = useState(false)
+  const navigate = useNavigate()
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -90,8 +92,9 @@ const Toolbar = () => {
         <div>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', boxShadow: ' 3px 3px black', borderRadius: '50%', textAlign: 'center', backgroundColor: '#97D09D', color: 'black', fontWeight: 'bold', fontSize: '1em', height: '50px', border: '3px solid green', width: '45px' }} >{userName} </div>
         </div>
-        
-
+        <div style={{ margin: '23px 0 0 10px' }}>
+            <img src={Imgprint} onClick={()=>navigate("/fmnodereact/print")}  title="print unit list" style={{ border: '3px solid green', height: '50px', borderRadius: '50%', boxShadow: ' 4px 4px black', }} />
+        </div>
         <Bydate />
       </div>
     </div>
